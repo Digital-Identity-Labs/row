@@ -2,5 +2,7 @@
   "environment": "production",
   "port": 3000,
   "daemonize": false,
-  "user": "app"
+  "user": "app",
+  "log_file": "/proc/self/fd/1",
+  "pid_file": "/opt/app/tmp"
 }
