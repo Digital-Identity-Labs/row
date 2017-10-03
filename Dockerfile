@@ -26,6 +26,8 @@ COPY optfs /opt
 
 WORKDIR /opt/app
 
+STOPSIGNAL INT
+
 RUN chmod a+x /opt/admin/*.sh && sync && /opt/admin/prepare_apps.sh
 
 ENTRYPOINT gosu app puma -e $RAILS_ENV -p 3000 -w $PUMA_WORKERS --preload --control tcp://0.0.0.0:9293 --control-token $PUMA_CONTROL_TOKEN
